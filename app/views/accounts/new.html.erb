@@ -1,0 +1,35 @@
+<h1><%= t(:register, scope: ['activerecord.account']).capitalize %></h1>
+<div class="col-md-6 col-md-offset-3">
+  <%= form_for(@account) do |f| %>
+    <% if @account.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@account.errors.count, t(:error, scope: ['activerecord.account'])) + "." %> <%= t(:prohibited_before_save, scope: ['activerecord.account']) %></h2>
+        <ul>
+          <% @account.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.label t(:email, scope: ['activerecord.account']).capitalize %>
+    <%= f.email_field :email, { class: 'form-control' } %>
+
+    <%= f.label t(:password, scope: ['activerecord.account']).capitalize %>
+    <%= f.password_field :password, { class: 'form-control' } %>
+
+    <%= f.label t(:password_confirmation, scope: ['activerecord.account']).capitalize %>
+    <%= f.password_field :password_confirmation, { class: 'form-control' } %>
+
+    <%= f.fields_for :person do |ff| %>
+      <%= ff.label t(:first_name, scope: ['activerecord.account']).capitalize %>
+      <%= ff.text_field :first_name, { class: 'form-control' } %>
+
+      <%= ff.label t(:last_name, scope: ['activerecord.account']).capitalize %>
+      <%= ff.text_field :last_name, { class: 'form-control' } %>
+    <% end %>
+
+    <%= f.submit t(:create_new_account, scope: ['activerecord.account']).capitalize, class: 'btn btn-primary' %>
+  <% end %>
+</div>
+

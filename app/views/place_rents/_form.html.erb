@@ -1,0 +1,29 @@
+<h1><%= t(:rent_a_place, scope: ['activerecord.place_rent']).capitalize %></h1>
+<div class="rent-form">
+  <%= form_for [@parking, @place_rent] do |f| %>
+    <% if @place_rent.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          <h2><%= pluralize(@parking.errors.count, t(:error, scope: ['activerecord.place_rent'])) + "." %> <%= t(:prohibited_before_save, scope: ['activerecord.place_rent']) %></h2>
+          <ul>
+            <% @place_rent.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
+    <%= f.label t(:starts_at, scope: ['activerecord.place_rent']).capitalize %><br>
+    <%= f.datetime_select :starts_at, {}, { class: 'form-control datetime-width' } %><br><br>
+
+    <%= f.label t(:ends_at, scope: ['activerecord.place_rent']).capitalize %><br>
+    <%= f.datetime_select :ends_at, {}, { class: 'form-control datetime-width' } %><br><br>
+
+    <%= f.label t(:kind_of_car, scope: ['activerecord.place_rent']).capitalize %><br>
+    <!--   <%= f.collection_select( :car_id, Car.all.select {|car| car.owner == current_person},:id,:registration_number, include_blank: false) %> -->
+<%= f.collection_select( :car_id, current_person.cars,:id,:registration_number, {}, {:class => 'form-control'}) %><br>
+
+    <%= f.submit t(:rent_a_place, scope: ['activerecord.place_rent']).capitalize, class: 'btn btn-primary'  %>
+  <% end %>
+</div>

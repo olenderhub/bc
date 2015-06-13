@@ -1,0 +1,34 @@
+<h1><%= t(:new_car, scope: ['activerecord.car']).capitalize %></h1>
+<div class="col-md-6 col-md-offset-3">
+  <%= form_for(@car) do |f| %>
+    <% if @car.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          <h2><%= pluralize(@car.errors.count, t(:error, scope: ['activerecord.car'])) + "." %> <%= t(:prohibited_before_save, scope: ['activerecord.car']) %></h2>
+          <ul>
+            <% @car.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
+    <%= f.label t(:registration_number, scope: ['activerecord.car']).capitalize %>
+    <%= f.text_field :registration_number, { class: 'form-control' } %>
+
+    <%= f.label t(:model, scope: ['activerecord.car']).capitalize %>
+    <%= f.text_field :model, { class: 'form-control' } %>
+
+    <%= f.fields_for :photo, @photo do |ff| %>
+
+      <%= ff.file_field :image %>
+    <% end %>
+
+    <%= image_tag(@current_photo.image.thumb('400x200').url, { class: 'photo-center' }) if @car.photo_id %><br>
+
+    <%= f.submit t(:create_new_car, scope: ['activerecord.car']).capitalize, class: 'btn btn-primary' %>
+  <% end %>
+
+</div>
+

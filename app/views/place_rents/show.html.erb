@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th><%= t(:starts_at, scope: ['activerecord.place_rent']).capitalize %></th>
+        <th><%= t(:ends_at, scope: ['activerecord.place_rent']).capitalize %></th>
+        <th><%= t(:price, scope: ['activerecord.place_rent']).capitalize %></th>
+        <th><%= t(:back_to_place_rents, scope: ['activerecord.place_rent']).capitalize %></th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td><h4><%= @place_rents.starts_at %></h4></td>
+      <td><h4><%= @place_rents.ends_at %></h4></td>
+      <td><h4><%= @place_rents.price %></h4></td>
+      <td><%= link_to t(:back, scope: ['activerecord.place_rent']).capitalize, place_rents_path, class: "btn btn-primary"  %></td>
+    </tr>
+  </tbody>
+</table>
+
+

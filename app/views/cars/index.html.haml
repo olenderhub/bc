@@ -1,0 +1,24 @@
+%table.table
+  %thead
+    %tr
+      %th/
+      = t(:registration_number, scope: ['activerecord.car']).capitalize
+      %th/
+      = t(:model, scope: ['activerecord.car']).capitalize
+      %th/
+      = t(:show, scope: ['activerecord.car']).capitalize
+      %th/
+      = t(:edit, scope: ['activerecord.car']).capitalize
+      %th/
+      = t(:remove, scope: ['activerecord.car']).capitalize
+  %tbody
+    - @cars.each do |car|
+      %tr
+        %td
+          %h4= car.registration_number
+        %td
+          %h4= car.model
+        %td= link_to t(:show, scope: ['activerecord.car']).capitalize, car_path(car), class: "btn btn-info"
+        %td= link_to t(:edit, scope: ['activerecord.car']).capitalize, edit_car_path(car), class: "btn btn-warning"
+        %td= link_to t(:remove, scope: ['activerecord.car']).capitalize, car_path(car), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger"
+= link_to t(:create_new_car, scope: ['activerecord.car']).capitalize, new_car_path, class: "btn btn-primary"

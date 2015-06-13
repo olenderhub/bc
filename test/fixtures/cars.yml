@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  registration_number: reg1
+  model: model1
+  owner: person1
+
+two:
+  registration_number: reg2
+  model: model2
+  owner: person2
+
+three:
+  registration_number: reg3
+  model: model3
+  owner: person3

@@ -1,0 +1,26 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th><%= t(:city, scope: ['activerecord.parking']).capitalize %></th>
+        <th><%= t(:kind_of_parking, scope: ['activerecord.parking']).capitalize %></th>
+        <th><%= t(:hour_price, scope: ['activerecord.parking']).capitalize %></th>
+        <th><%= t(:day_price, scope: ['activerecord.parking']).capitalize %></th>
+        <th><%= t(:places, scope: ['activerecord.parking']).capitalize %></th>
+        <th><%= t(:owner, scope: ['activerecord.parking']).capitalize %></th>
+        <th><%= t(:back_to_parkings, scope: ['activerecord.parking']).capitalize %></th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td><h4><%= @parking.address.city %></h4></td>
+      <td><h4><%= @parking.kind %></h4></td>
+      <td><h4><%= @parking.hour_price %></h4></td>
+      <td><h4><%= @parking.day_price %></h4></td>
+      <td><h4><%= @parking.places %></h4></td>
+      <td><h4><%= @parking.owner.first_name if @parking.owner %></h4></td>
+      <td><%= link_to t(:back, scope: ['activerecord.parking']).capitalize, parkings_path, class: "btn btn-primary" %></td>
+    </tr>
+  </tbody>
+</table>
+
+

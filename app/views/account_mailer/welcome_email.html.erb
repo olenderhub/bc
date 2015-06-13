@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+   <p>
+    Hello <%= @account.person.first_name.capitalize %><br>
+    You have successfully signed up to bookparking.dev<br>
+    To login to the site, just follow this  <%= link_to 'link',
+    @url %><br>
+    Thanks for joining and have a great day!
+   </p>
+  </body>
+</html>

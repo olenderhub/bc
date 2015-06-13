@@ -1,0 +1,31 @@
+%table.table
+  %thead
+    %tr
+      %th/
+      = t(:starts_at, scope: ['activerecord.place_rent']).capitalize
+      %th/
+      = t(:ends_at, scope: ['activerecord.place_rent']).capitalize
+      %th/
+      = t(:price, scope: ['activerecord.place_rent']).capitalize
+      %th/
+      = t(:show, scope: ['activerecord.place_rent']).capitalize
+      %th/
+      = t(:cars, scope: ['activerecord.place_rent']).capitalize
+      %th/
+      = t(:parkings, scope: ['activerecord.place_rent']).capitalize
+  %tbody
+    - @place_rents.each do |place_rent|
+      %tr
+        / it give me id from current place_rent
+        %td
+          %h4= place_rent.starts_at
+        %td
+          %h4= place_rent.ends_at
+        %td.price
+          %h4= place_rent.price
+        / for place_rent argument do calculate_price function from model
+        %td= link_to t(:show, scope: ['activerecord.place_rent']).capitalize, place_rent_path(place_rent), class: "btn btn-info"
+        %td= link_to t(:car, scope: ['activerecord.place_rent']).capitalize, car_path(place_rent.car), class: "btn btn-success"
+        %td
+          - if place_rent.parking.present?
+            = link_to t(:parking, scope: ['activerecord.place_rent']).capitalize, parking_path(place_rent.parking), class: "btn btn-success"

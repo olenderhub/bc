@@ -1,0 +1,113 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  activerecord:
+    account:
+      register: "register"
+      error: "error"
+      prohibited_before_save: "Prohibited this article from being saved:"
+      email: "email"
+      password: "password"
+      password_confirmation: "password_confirmation"
+      first_name: "first_name"
+      last_name: "last_name"
+      create_new_account: "create new account"
+
+    car:
+      new_car: "new car"
+      error: "error"
+      prohibited_before_save: "Prohibited this article from being saved:"
+      registration_number: "registration_number"
+      model: "model"
+      create_new_car: "create new car"
+      show: "show"
+      edit: "edit"
+      remove: "remove"
+      back_to_cars: "back to list of cars"
+      back: "back"
+
+    layouts:
+      log_in: "login"
+      register: "register"
+      cars: "cars"
+      parkings: "parkings"
+      place_rents: "place rents"
+      log_off: "log off"
+      log_in_with_facebook: "Log in with Facebook"
+      contact: "contact"
+
+    parking:
+      welcome: "Welcome to the Parkings APP"
+      welcome2: "This is the home page for the Parkings APP."
+      search_form: "search form"
+      day_price_from: "day price from:"
+      day_price_to: "day price to:"
+      hour_price_from: "hour price from:"
+      hour_price_to: "hour price to"
+      city: "city"
+      private: "private"
+      public: "public"
+      search: "search"
+      new_parking: "New parking"
+      error: "error"
+      prohibited_before_save: "Prohibited this article from being saved:"
+      places: "places"
+      kind: "kind"
+      hour_price: "hour price"
+      day_price: "day price"
+      show: "show"
+      edit: "edit"
+      remove: "remove"
+      rent_a_place: "rent a place"
+      create_new_parking: "Create new parking"
+      street: "street"
+      zip_code: "zip code"
+      outdoor: "outdoor"
+      indoor: "indoor"
+      kind_of_parking: "kind of parking"
+      owner: "owner"
+      back_to_parkings: "back to list of parkings"
+      back: "back"
+      car_not_found: "That car does not exist"
+
+    place_rent:
+      rent_a_place: "rent a place"
+      error: "error"
+      prohibited_before_save: "Prohibited this article from being saved:"
+      december: "december"
+      starts_at: "starts at"
+      ends_at: "ends at"
+      kind_of_car: "kind of car"
+      price: "price"
+      show: "show"
+      cars: "cars"
+      parkings: "parkings"
+      car: "car"
+      parking: "parking"
+      back_to_place_rents: "back to list of place rents"
+      back: "back"
+
+    session:
+      log_in: "login"
+      email: "email"
+      password: "password"
+      Log_in: "log in"

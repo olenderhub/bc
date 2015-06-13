@@ -1,0 +1,68 @@
+%table{class: "container-table"}
+  %tbody
+    %tr
+      %td
+        .center.jumbotron
+          %h1/
+          = t(:welcome, scope: ['activerecord.parking'])
+          %h2/
+          = t(:welcome2, scope: ['activerecord.parking'])
+        %h1
+          = t(:search_form, scope: ['activerecord.parking']).capitalize
+        .search-form
+          = form_tag(parkings_path, method: :get) do
+            = label_tag(:day_price_from, t(:day_price_from, scope: ['activerecord.parking']).capitalize)
+            = text_field_tag(:day_price_from, params[:day_price_from], { class: 'form-control' })
+            = label_tag(:day_price_to, t(:day_price_to, scope: ['activerecord.parking']).capitalize)
+            = text_field_tag(:day_price_to, params[:day_price_to], { class: 'form-control' })
+            = label_tag(:hour_price_from, t(:hour_price_from, scope: ['activerecord.parking']).capitalize)
+            = text_field_tag(:hour_price_from, params[:hour_price_from], { class: 'form-control' })
+            = label_tag(:hour_price_to, t(:hour_price_to, scope: ['activerecord.parking']).capitalize)
+            = text_field_tag(:hour_price_to, params[:hour_price_to], { class: 'form-control' })
+            = label_tag(:city, t(:city, scope: ['activerecord.parking']).capitalize)
+            = text_field_tag(:city, params[:city], { class: 'form-control' })
+            = label_tag(:private, t(:private, scope: ['activerecord.parking']).capitalize)
+            = check_box_tag(:private, '1', params[:private], { class: 'check-box-align-left' })
+            = label_tag(:public, t(:public, scope: ['activerecord.parking']).capitalize)
+            = check_box_tag(:public, '1', params[:public], { class: 'check-box-align-left' })
+            = submit_tag t(:search, scope: ['activerecord.parking']).capitalize, { class: 'btn btn-primary' }
+            %br
+        %table.table
+          %thead
+            %tr
+              %th/
+              = t(:city, scope: ['activerecord.parking'],).capitalize
+              %th/
+              = t(:places, scope: ['activerecord.parking']).capitalize
+              %th/
+              = t(:hour_price, scope: ['activerecord.parking']).capitalize
+              %th/
+              = t(:day_price, scope: ['activerecord.parking']).capitalize
+              %th/
+              = t(:show, scope: ['activerecord.parking']).capitalize
+              %th/
+              = t(:edit, scope: ['activerecord.parking']).capitalize
+              %th/
+              = t(:remove, scope: ['activerecord.parking']).capitalize
+              - if session[:current_user_id].present?
+                %th/
+                = t(:rent_a_place, scope: ['activerecord.parking']).capitalize
+          %tbody
+            - @parkings.each do |parking|
+              %tr{class: "place-rent-#{parking.id}"}
+                %td
+                  %h4= parking.address.city if parking.address
+                %td
+                  %h4= parking.places
+                %td
+                  %h4= parking.hour_price
+                %td
+                  %h4= parking.day_price
+                %td= link_to t(:show, scope: ['activerecord.parking']).capitalize, parking_path(parking), class: "btn btn-info"
+                %td= link_to t(:edit, scope: ['activerecord.parking']).capitalize, edit_parking_path(parking), class: "btn btn-warning"
+                %td= link_to t(:remove, scope: ['activerecord.parking']).capitalize, parking_path(parking), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger"
+                - if session[:current_user_id].present?
+                  %td= link_to t(:rent_a_place, scope: ['activerecord.parking']).capitalize, new_parking_place_rent_path(parking), class: "btn btn-success"
+= will_paginate @parkings, class: "paginate-center"
+= link_to t(:create_new_parking, scope: ['activerecord.parking']).capitalize, new_parking_path, class: "btn btn-primary"
+/ params[:private] - if I write this to form I will can control form in my site by send url &private=1 and it will make the site with checked private object. So only need add to url &object=value.

@@ -1,0 +1,13 @@
+<h1><%= t(:log_in, scope: ['activerecord.session']).capitalize %></h1>
+<div class="col-md-6 col-md-offset-3">
+  <%= form_tag(login_path) do %>
+
+	<%= label_tag(:email, t(:email, scope: ['activerecord.session']).capitalize) %>
+	<%= email_field_tag(:email, params[:email], { class: 'form-control' }) %>
+
+	<%= label_tag(:password_digest, t(:password, scope: ['activerecord.session']).capitalize) %>
+	<%= password_field_tag(:password_digest, params[:password_digest], { class: 'form-control' }) %>
+
+	<%= submit_tag t(:Log_in, scope: ['activerecord.session']).capitalize, class: 'btn btn-primary' %>
+  <% end %>
+</div>

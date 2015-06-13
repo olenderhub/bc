@@ -1,0 +1,19 @@
+<table class="table">
+	<thead>
+		<tr>
+      <th><%= t(:registration_number, scope: ['activerecord.car']).capitalize %></th>
+      <th><%= t(:model, scope: ['activerecord.car']).capitalize %></th>
+      <th><%= t(:back_to_cars, scope: ['activerecord.car']).capitalize %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h4><%= @car.registration_number %></h4></td>
+      <td><h4><%= @car.model %></h4></td>
+      <td><%= link_to t(:back, scope: ['activerecord.car']).capitalize, cars_path, class: "btn btn-primary" %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= image_tag @current_photo.image.thumb('400x200').url if @car.photo_id %>
+

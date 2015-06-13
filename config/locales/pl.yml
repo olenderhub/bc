@@ -1,0 +1,155 @@
+pl:
+  activerecord:
+    account:
+      register: "rejestracja"
+      error: "błąd"
+      prohibited_before_save: "Nie spełniono następujących warunków:"
+      email: "email"
+      password: "hasło"
+      password_confirmation: "potwierdź hasło"
+      first_name: "imię"
+      last_name: "nazwisko"
+      create_new_account: "stwórz nowe konto"
+
+    car:
+      new_car: "nowe auto"
+      error: "błąd"
+      prohibited_before_save: "Nie spełniono następujących warunków:"
+      registration_number: "numer rejestracyjny"
+      model: "model"
+      create_new_car: "stwórz nowe auto"
+      show: "wyświetl"
+      edit: "edytuj"
+      remove: "usuń"
+      back_to_cars: "powrót do listy aut"
+      back: "powrót"
+
+    layouts:
+      log_in: "logowanie"
+      register: "rejestracja"
+      cars: "auta"
+      parkings: "parkingi"
+      place_rents: "wynajmowane miejsca"
+      log_off: "wyloguj"
+      log_in_with_facebook: "Logowanie przez Facebook"
+      contact: "kontakt"
+
+    parking:
+      welcome: "Witamy w Parkings APP"
+      welcome2: "To jest strona główna Parkings APP."
+      search_form: "wyszukiwarka"
+      day_price_from: "cena za dzień od:"
+      day_price_to: "cena za dzień do:"
+      hour_price_from: "cena za godzinę od:"
+      hour_price_to: "cena za godzinę do:"
+      city: "miasto"
+      private: "prywatny"
+      public: "publiczny"
+      search: "szukaj"
+      new_parking: "Nowy parking"
+      error: "błąd"
+      prohibited_before_save: "Nie spełniono następujących warunków:"
+      places: "miejsca"
+      kind: "rodzaj"
+      hour_price: "cena za godzinę"
+      day_price: "cena za dzień"
+      show: "wyświetl"
+      edit: "edytuj"
+      remove: "usuń"
+      rent_a_place: "wynajmij miejsce"
+      create_new_parking: "Stwórz nowy parking"
+      street: "ulica"
+      zip_code: "kod pocztowy"
+      outdoor: "na zewnątrz"
+      indoor: "wewnątrz"
+      kind_of_parking: "rodzaj parkingu"
+      owner: "właściciel"
+      back_to_parkings: "powrót do listy parkingów"
+      back: "powrót"
+      car_not_found: "Nie ma takiego auta"
+
+    place_rent:
+      rent_a_place: "wynajmij miejsce"
+      error: "błąd"
+      prohibited_before_save: "Nie spełniono następujących warunków:"
+      december: "grudzień"
+      starts_at: "od"
+      ends_at: "do"
+      kind_of_car: "wybierz auto"
+      price: "cena"
+      show: "wyświetl"
+      cars: "auta"
+      parkings: "parkingi"
+      car: "auto"
+      parking: "parking"
+      back_to_place_rents: "powrót do listy wynajmowanych miejsc"
+      back: "powrót"
+
+    session:
+      log_in: "logowanie"
+      email: "email"
+      password: "hasło"
+      Log_in: "zaloguj"
+
+    errors:
+      models:
+        parking:
+          attributes:
+            places:
+              blank: "Nie może być puste"
+            hour_price:
+              blank: "Nie może być puste"
+              not_a_number: "Musi być liczbą"
+            day_price:
+              blank: "Nie może być puste"
+              not_a_number: "Musi być liczbą"
+        address:
+          attributes:
+            city:
+              blank: "Nie może być puste"
+            street:
+              blank: "Nie może być puste"
+            zip_code:
+              blank: "Nie może być puste"
+              invalid: "Błędny zapis. Proszę uzupełnić w formie XX-XXX"
+        person:
+          attributes:
+            first_name:
+              blank: "Nie może być puste"
+            last_name:
+              blank: "Nie może być puste"
+            password:
+              blank: "Nie może być puste"
+        account:
+          attributes:
+            password:
+              blank: "Nie może być puste"
+        car:
+          attributes:
+            registration_number:
+              blank: "Nie może być puste"
+            model:
+              blank: "Nie może być puste"
+
+  date: #Throws an exception otherwise.
+    order:
+      - :day
+      - :month
+      - :year
+    month_names:
+    - Styczeń
+    - Luty
+    - Marzec
+    - Kwiecień
+    - Maj
+    - Czerwiec
+    - Lipiec
+    - Sierpień
+    - Wrzesień
+    - Październik
+    - Listopad
+    - Grudzień
+
+  will_paginate:
+    next_label: "Następna strona"
+    previous_label: "Poprzednia strona"

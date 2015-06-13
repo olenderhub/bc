@@ -1,0 +1,42 @@
+<h1><%= t(:new_parking, scope: ['activerecord.parking']) %></h1>
+<div class="col-md-6 col-md-offset-3">
+  <%= form_for(@parking) do |f| %>
+    <% if @parking.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          <h2><%= pluralize(@parking.errors.count, t(:error, scope: ['activerecord.parking'])) + "." %> <%= t(:prohibited_before_save, scope: ['activerecord.parking']) %></h2>
+          <ul>
+            <% @parking.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
+    <%= f.label t(:places, scope: ['activerecord.parking']) %>
+    <%= f.number_field :places, { class: 'form-control' } %>
+
+    <%= f.label t(:kind, scope: ['activerecord.parking']) %>
+    <%= f.select :kind, Parking::Kinds.collect { |p| [ p, p ] }, {}, { class: 'form-control' } %><br>
+
+    <%= f.label t(:hour_price, scope: ['activerecord.parking']) %>
+    <%= f.number_field :hour_price, { class: 'form-control' } %>
+
+    <%= f.label t(:day_price, scope: ['activerecord.parking']) %>
+    <%= f.number_field :day_price, { class: 'form-control' } %>
+
+    <%= f.fields_for :address do |ff| %>
+      <%= ff.label t(:city, scope: ['activerecord.parking']) %>
+      <%= ff.text_field :city, { class: 'form-control' } %>
+
+      <%= ff.label t(:street, scope: ['activerecord.parking']) %>
+      <%= ff.text_field :street, { class: 'form-control' } %>
+
+      <%= ff.label t(:zip_code, scope: ['activerecord.parking']) %>
+      <%= ff.text_field :zip_code, { class: 'form-control' } %>
+    <% end %>
+
+    <%= f.submit t(:create_new_parking, scope: ['activerecord.parking']), class: 'btn btn-primary' %>
+  <% end %>
+</div>

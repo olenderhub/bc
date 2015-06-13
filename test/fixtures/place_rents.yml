@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+first_place_rent:
+  starts_at: 2015-02-25 17:02:02
+  ends_at: 2016-02-27 18:22:02
+  price: 52
+  parking: parking1
+  car: one
+  identifier: <%= Array.new(1){rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s}.join %>
+
+second_place_rent:
+  starts_at: 2015-02-25 17:02:02
+  ends_at: 2015-02-25 20:02:02
+  price: 6
+  parking: parking2
+  car: two
+  identifier: <%= Array.new(1){rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s}.join %>
+
+third_place_rent:
+  starts_at: 2015-02-25 17:02:02
+  ends_at: 2015-05-25 17:02:02
+  price: 5
+  parking: parking3
+  car: three
+  identifier: <%= Array.new(1){rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s + rand(9).to_s}.join %>

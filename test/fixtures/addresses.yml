@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+address_one:
+  street: street1
+  city: city1
+  zip_code: 11-111
+
+address_two:
+  street: street2
+  city: city2
+  zip_code: 22-222
+
+address_three:
+  street: street3
+  city: city3
+  zip_code: 33-333
